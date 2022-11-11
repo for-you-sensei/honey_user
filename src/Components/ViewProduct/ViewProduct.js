@@ -6,11 +6,10 @@ import { acLoading } from "../../Redux/Loading";
 import "./ViewProduct.css";
 
 export function ViewProduct() {
+  const dispatch = useDispatch();
   const location = useLocation();
   const id = location.pathname.split("/").pop();
   const [productData, setProductData] = useState({});
-  const dispatch = useDispatch();
-
   const [img, setImg] = useState([]);
 
   useEffect(() => {
