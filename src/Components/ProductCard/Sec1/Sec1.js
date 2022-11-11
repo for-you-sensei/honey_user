@@ -4,11 +4,14 @@ import { Pagination } from "../Paginate";
 import { useDispatch } from "react-redux";
 import { acLoading } from "../../../Redux/Loading";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 export function Sec1() {
   const [currentPage, setCurrentPage] = useState(1);
   const [postsPerPage] = useState(15);
   const [data, setData] = useState([]);
+
+  const navigate = useNavigate();
 
   const dispatch = useDispatch();
 
@@ -45,7 +48,13 @@ export function Sec1() {
         <div className="product-sec1-container">
           {currentPosts.map((item) => {
             return (
-              <div key={item.id} className="product-sec1-card">
+              <div
+                key={item.id}
+                className="product-sec1-card"
+                onClick={() => {
+                  navigate(`/product_view/${item.id}`);
+                }}
+              >
                 <figure className="product-sec1-figure">
                   <img src={item.img[0]} alt="" />
                 </figure>
