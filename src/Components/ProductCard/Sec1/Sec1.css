@@ -1,0 +1,163 @@
+#product-sec1 {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 100px 6%;
+  background: linear-gradient(145deg, #007604 1.66%, #ffe574 93.21%);
+}
+
+.product-sec1-container {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-evenly;
+  gap: 40px;
+}
+
+.product-sec1-card {
+  cursor: pointer;
+  width: 300px;
+  height: 340px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  background: #ffffff;
+  border-radius: 10px;
+  padding: 15px;
+  text-align: center;
+  transition: all 0.3s ease-in-out;
+}
+
+.product-sec1-card:hover {
+  transform: scale(1.1);
+}
+
+.product-sec1-figure {
+  max-width: 100%;
+  height: 80%;
+}
+
+.product-sec1-figure > img {
+  max-width: 100%;
+  width: 100%;
+  height: 100%;
+}
+
+.product-sec1-texts {
+  width: 100%;
+}
+
+.product-sec1-texts :first-child {
+  font-weight: 500;
+  font-size: 22px;
+  line-height: 160%;
+  color: #ffa638;
+}
+
+.product-sec1-texts :last-child {
+  font-weight: 700;
+  font-size: 15px;
+  line-height: 160%;
+  color: #ffa638;
+}
+
+@media (max-width: 750px) {
+  #product-sec1 {
+    padding: 80px 6%;
+  }
+
+  .product-sec1-container {
+    gap: 20px;
+  }
+
+  .product-sec1-card {
+    width: 250px;
+    height: 300px;
+    padding: 10px;
+  }
+
+  .product-sec1-texts :first-child {
+    font-size: 18px;
+  }
+
+  .product-sec1-texts :last-child {
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 600px) {
+  #product-sec1 {
+    padding: 50px 6%;
+  }
+
+  .product-sec1-container {
+    gap: 10px;
+  }
+
+  .product-sec1-card {
+    width: 200px;
+    height: 220px;
+    padding: 5px;
+  }
+
+  .product-sec1-texts :first-child {
+    font-size: 14px;
+  }
+
+  .product-sec1-texts :last-child {
+    font-size: 8px;
+  }
+}
+
+@media (max-width: 500px) {
+  #product-sec1 {
+    padding: 30px 3%;
+  }
+
+  .product-sec1-container {
+    gap: 10px;
+  }
+
+  .product-sec1-card {
+    width: 180px;
+    height: 200px;
+    padding: 8px;
+  }
+
+  .product-sec1-texts :first-child {
+    font-size: 14px;
+  }
+
+  .product-sec1-texts :last-child {
+    font-size: 8px;
+  }
+}
+
+@media (max-width: 400px) {
+  #product-sec1 {
+    padding: 30px 3%;
+  }
+
+  .product-sec1-container {
+    gap: 5px;
+  }
+
+  .product-sec1-card {
+    width: 48%;
+    height: 160px;
+    padding: 8px;
+  }
+
+  .product-sec1-texts :first-child {
+    font-size: 10px;
+  }
+
+  .product-sec1-texts :last-child {
+    font-size: 6px;
+  }
+}

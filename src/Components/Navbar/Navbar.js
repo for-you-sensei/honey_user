@@ -1,11 +1,13 @@
 import React, { useState } from "react";
 import "./Navbar.css";
 import logo from "../../Assets/Icons/honey logo.svg";
+import blackLogo from "../../Assets/Icons/Footer/honey logo black.svg";
 import menu from "../../Assets/Icons/menu.png";
-import { NavLink, useNavigate } from "react-router-dom";
+import { NavLink, useLocation, useNavigate } from "react-router-dom";
 import { Drawer, List, ListItemButton } from "@mui/material";
 
 export function Navbar() {
+  const location = useLocation();
   const navigate = useNavigate();
   const [open, setOpen] = useState(false);
 
@@ -33,7 +35,10 @@ export function Navbar() {
   ];
 
   return (
-    <div id="navbar">
+    <div
+      id="navbar"
+      style={location.pathname !== "/" ? { background: "#FFA638" } : {}}
+    >
       <figure
         className="nav-logo"
         onClick={(e) => {
@@ -41,7 +46,7 @@ export function Navbar() {
           navigate("/");
         }}
       >
-        <img src={logo} alt="" />
+        <img src={location.pathname !== "/" ? blackLogo : logo} alt="" />
       </figure>
 
       <div className="nav-links">
