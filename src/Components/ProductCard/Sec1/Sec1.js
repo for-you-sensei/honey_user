@@ -7,13 +7,11 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
 export function Sec1() {
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
   const [currentPage, setCurrentPage] = useState(1);
   const [postsPerPage] = useState(15);
   const [data, setData] = useState([]);
-
-  const navigate = useNavigate();
-
-  const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(acLoading(true));
