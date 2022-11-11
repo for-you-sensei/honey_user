@@ -41,7 +41,6 @@ export function Sec1() {
   };
 
   return (
-    <>
       <div id="product-sec1">
         <div className="product-sec1-container">
           {currentPosts.map((item) => {
@@ -76,6 +75,5 @@ export function Sec1() {
           setCurrentPage={setCurrentPage}
         />
       </div>
-    </>
   );
 }
