@@ -1,7 +1,7 @@
 import { React, useState, useEffect } from "react";
 import "./Sec1.css";
 import { Pagination } from "../Paginate";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { acLoading } from "../../../Redux/Loading";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
@@ -13,11 +13,13 @@ export function Sec1() {
   const [postsPerPage] = useState(15);
   const [data, setData] = useState([]);
 
+  const relodeProduct = useSelector((state) => state.relodeProduct);
+
   useEffect(() => {
     dispatch(acLoading(true));
     axios(`${"https://honey.pandashop.uz/product/view"}`, {
       headers: {
-        token: "qev234-23fvg24-vg24tae",
+        token: "",
       },
     })
       .then((res) => {
@@ -28,7 +30,7 @@ export function Sec1() {
         console.log(err);
         dispatch(acLoading(false));
       });
-  }, [dispatch]);
+  }, [dispatch, relodeProduct]);
 
   // Get current posts
   const indexOfLastPost = currentPage * postsPerPage;
@@ -41,39 +43,39 @@ export function Sec1() {
   };
 
   return (
-      <div id="product-sec1">
-        <div className="product-sec1-container">
-          {currentPosts.map((item) => {
-            return (
-              <div
-                key={item.id}
-                className="product-sec1-card"
-                onClick={() => {
-                  navigate(`/product_view/${item.id}`);
-                }}
-              >
-                <figure className="product-sec1-figure">
-                  <img src={item.img[0]} alt="" />
-                </figure>
+    <div id="product-sec1">
+      <div className="product-sec1-container">
+        {currentPosts.map((item) => {
+          return (
+            <div
+              key={item.id}
+              className="product-sec1-card"
+              onClick={() => {
+                navigate(`/product_view/${item.id}`);
+              }}
+            >
+              <figure className="product-sec1-figure">
+                <img src={item.img[0]} alt="" />
+              </figure>
 
-                <div className="product-sec1-texts">
-                  <p>
-                    {item.name} {item.weight}
-                  </p>
-                  <p>{item.price} so'm</p>
-                </div>
+              <div className="product-sec1-texts">
+                <p>
+                  {item.name} {item.weight}
+                </p>
+                <p>{item.price} so'm</p>
               </div>
-            );
-          })}
-        </div>
-
-        <Pagination
-          postsPerPage={postsPerPage}
-          totalPosts={data.length}
-          paginate={paginate}
-          currentPage={currentPage}
-          setCurrentPage={setCurrentPage}
-        />
+            </div>
+          );
+        })}
       </div>
+
+      <Pagination
+        postsPerPage={postsPerPage}
+        totalPosts={data.length}
+        paginate={paginate}
+        currentPage={currentPage}
+        setCurrentPage={setCurrentPage}
+      />
+    </div>
   );
 }

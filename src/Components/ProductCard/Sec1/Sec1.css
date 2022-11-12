@@ -5,7 +5,8 @@
   align-items: center;
   justify-content: center;
   padding: 100px 6%;
-  background: linear-gradient(145deg, #007604 1.66%, #ffe574 93.21%);
+  background: linear-gradient(145deg, #004b03 1.66%, #dbc04c 93.21%);
+  gap: 50px;
 }
 
 .product-sec1-container {

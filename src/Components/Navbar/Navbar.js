@@ -53,7 +53,7 @@ export function Navbar() {
         <NavLink to="/">Home</NavLink>
         <NavLink to="/about">About</NavLink>
         <NavLink to="/our_product">Our Product</NavLink>
-        <NavLink to="/my_orders">Contact</NavLink>
+        <NavLink to="/my_orders">My Orders</NavLink>
       </div>
 
       <figure

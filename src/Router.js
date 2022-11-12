@@ -7,7 +7,7 @@ import { About } from "./Pages/About/About";
 import { Product } from "./Pages/Product/Product";
 import { Notfound } from "./Pages/NotFound/NotFound";
 import { ViewProduct } from "./Components/ViewProduct/ViewProduct";
-
+import Loading from "./Components/Loading.js/Loading";
 export function Router() {
   return (
     <div id="router">
@@ -20,8 +20,8 @@ export function Router() {
         <Route path="/product_view/:id" element={<ViewProduct />} />
         <Route path="*" element={<Notfound />} />
       </Routes>
-
       <Footer />
+      <Loading />
     </div>
   );
 }

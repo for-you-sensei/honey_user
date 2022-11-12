@@ -1,8 +1,11 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useLocation } from "react-router-dom";
 import { acLoading } from "../../Redux/Loading";
+import { PatternFormat } from "react-number-format";
+import { toast } from "react-toastify";
+import close from "../../Assets/Icons/close_ring.svg";
 import "./ViewProduct.css";
 
 export function ViewProduct() {
@@ -11,6 +14,9 @@ export function ViewProduct() {
   const id = location.pathname.split("/").pop();
   const [productData, setProductData] = useState({});
   const [img, setImg] = useState([]);
+  const [addOrder, setAddOrder] = useState(false);
+
+  const relodeProduct = useSelector((state) => state.relodeProduct);
 
   useEffect(() => {
     dispatch(acLoading(true));
@@ -29,7 +35,7 @@ export function ViewProduct() {
         dispatch(acLoading(false));
         console.log(err);
       });
-  }, [id, dispatch]);
+  }, [id, dispatch, relodeProduct]);
 
   return (
     <div id="product-sec1">
@@ -54,10 +60,97 @@ export function ViewProduct() {
           </div>
 
           <div className="product-view-btns">
-            <button>Xarid qilish</button>
+            <button
+              onClick={(e) => {
+                e.preventDefault();
+                setAddOrder(true);
+              }}
+            >
+              Xarid qilish
+            </button>
             <button>Biz bilan Bog'laning</button>
           </div>
         </div>
+      </div>
+
+      <div className={addOrder ? "product_body open" : "product_body"}>
+        <form
+          className={addOrder ? "modal_body activ" : "modal_body"}
+          onSubmit={(e) => {
+            e.preventDefault();
+
+            var data = JSON.stringify({
+              customer: e.target.customer.value,
+              phone: e.target.phone.value,
+              address: e.target.address.value,
+              name: productData.name,
+              price: productData.price,
+              territory: productData.territory,
+              weight: productData.weight,
+              about: productData.about,
+              img: img,
+            });
+
+            var config = {
+              url: `https://honey.pandashop.uz/order/add`,
+              method: "POST",
+              headers: {
+                "Content-Type": "application/json",
+              },
+              data,
+            };
+
+            axios(config)
+              .then(function (response) {
+                toast(response.data.message);
+                console.log(response.data);
+              })
+              .catch(function (error) {
+                toast(error.response.data.message);
+              });
+          }}
+        >
+          <button
+            id="close_form"
+            onClick={(e) => {
+              e.preventDefault();
+              setAddOrder(false);
+            }}
+          >
+            <figure className="close_form_figure">
+              <img src={close} alt="" />
+            </figure>
+          </button>
+
+          <div className="product-view-form-texts">
+            <p>
+              {productData.name} {productData.weight}
+            </p>
+            <p>{productData.price} so'm</p>
+          </div>
+
+          <div className="product-view-inputs">
+            <input
+              type="text"
+              name="customer"
+              placeholder="Isim Familyangiz"
+              autoComplete="off"
+            />
+            <PatternFormat
+              format="+99 8(##) ### ####"
+              allowEmptyFormatting
+              mask="_"
+              name="phone"
+            />
+            <input
+              type="text"
+              name="address"
+              placeholder="Sizning manzilingiz"
+              autoComplete="off"
+            />
+            <button type="submit">Buyurtma Berish</button>
+          </div>
+        </form>
       </div>
     </div>
   );
