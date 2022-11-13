@@ -104,7 +104,7 @@ export function ViewProduct() {
 
             axios(config)
               .then(function (response) {
-                toast(response.data.message);
+                toast.success(response.data.message);
                 console.log(response.data);
                 setAddOrder(false);
                 e.target.customer.value = "";

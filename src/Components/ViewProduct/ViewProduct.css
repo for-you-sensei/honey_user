@@ -71,17 +71,27 @@
   border-radius: 7px;
   font-weight: 600;
   line-height: 126%;
+  background: none;
+  color: #ffffff;
 }
 
 .product-view-btns :first-child {
-  background: #d1ff33;
+  border: 1px solid #d1ff33;
   font-size: 16px;
-  color: #000000;
 }
 
 .product-view-btns :last-child {
-  background: #2196f3;
+  border: 1px solid #2196f3;
   font-size: 16px;
+}
+
+.product-view-btns :first-child:hover {
+  background: #d1ff33;
+  color: #000000;
+}
+
+.product-view-btns :last-child:hover {
+  background: #2196f3;
   color: #ffffff;
 }
 

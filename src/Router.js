@@ -10,6 +10,7 @@ import { ViewProduct } from "./Components/ViewProduct/ViewProduct";
 import Loading from "./Components/Loading.js/Loading";
 import { Orders } from "./Pages/MyOrders/MyOrders";
 import { MostView } from "./Components/ViewProduct/MostViewed/MostView";
+import { ViewOrder } from "./Components/ViewOrder/ViewOrder";
 export function Router() {
   return (
     <div id="router">
@@ -21,6 +22,7 @@ export function Router() {
         <Route path="/our_product" element={<Product />} />
         <Route path="/product_view/:id" element={<ViewProduct />} />
         <Route path="/my_orders" element={<Orders />} />
+        <Route path="/order_view/:id" element={<ViewOrder />} />
 
         {/* For Test */}
         <Route path="/mostview" element={<MostView />} />

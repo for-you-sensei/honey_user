@@ -119,20 +119,28 @@
 .order-sec1-card-btns > button {
   width: 48%;
   height: 30px;
-  border: none;
   outline: none;
   border-radius: 5px;
-  color: #ffffff;
-}
-
-.order-sec1-card-btns > button:hover {
-  box-shadow: 5px 5px 8px 0px #000000;
+  transition: all 0.3s ease-in-out;
 }
 
 .order-sec1-card-btns :first-child {
-  background-color: #ff0000;
+  border: 1px solid #ff0000;
+  background: none;
+  color: #000000;
+}
+
+.order-sec1-card-btns :first-child:hover {
+  background: #ff0000;
+  color: #ffffff;
 }
 
 .order-sec1-card-btns :last-child {
-  background-color: #0077ff;
+  background: none;
+  border: 1px solid #0077ff;
+}
+
+.order-sec1-card-btns :last-child:hover {
+  background: #0077ff;
+  color: #ffffff;
 }
