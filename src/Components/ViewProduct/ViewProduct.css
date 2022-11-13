@@ -11,9 +11,11 @@
   width: 100%;
   height: auto;
   display: flex;
+  flex-wrap: wrap;
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
+  gap: 20px;
 }
 
 .product-view-figure {

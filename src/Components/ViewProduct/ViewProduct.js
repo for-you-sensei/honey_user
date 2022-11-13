@@ -3,10 +3,10 @@ import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useLocation } from "react-router-dom";
 import { acLoading } from "../../Redux/Loading";
-import { PatternFormat } from "react-number-format";
 import { toast } from "react-toastify";
 import close from "../../Assets/Icons/close_ring.svg";
 import "./ViewProduct.css";
+// import { MostView } from "./MostViewed/MostView";
 
 export function ViewProduct() {
   const dispatch = useDispatch();
@@ -79,6 +79,8 @@ export function ViewProduct() {
           onSubmit={(e) => {
             e.preventDefault();
 
+            //imgni massiv sifati jo'natadigan qilish kerak
+
             var data = JSON.stringify({
               customer: e.target.customer.value,
               phone: e.target.phone.value,
@@ -88,7 +90,7 @@ export function ViewProduct() {
               territory: productData.territory,
               weight: productData.weight,
               about: productData.about,
-              img: img,
+              img: img[0],
             });
 
             var config = {
@@ -104,6 +106,10 @@ export function ViewProduct() {
               .then(function (response) {
                 toast(response.data.message);
                 console.log(response.data);
+                setAddOrder(false);
+                e.target.customer.value = "";
+                e.target.phone.value = "";
+                e.target.address.value = "";
               })
               .catch(function (error) {
                 toast(error.response.data.message);
@@ -136,11 +142,10 @@ export function ViewProduct() {
               placeholder="Isim Familyangiz"
               autoComplete="off"
             />
-            <PatternFormat
-              format="+99 8(##) ### ####"
-              allowEmptyFormatting
-              mask="_"
+            <input
               name="phone"
+              placeholder="telefon raqamingiz"
+              autoComplete="off"
             />
             <input
               type="text"
@@ -152,6 +157,8 @@ export function ViewProduct() {
           </div>
         </form>
       </div>
+
+      {/* <MostView /> */}
     </div>
   );
 }

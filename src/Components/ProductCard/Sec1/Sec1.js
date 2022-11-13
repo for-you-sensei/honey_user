@@ -18,6 +18,7 @@ export function Sec1() {
   useEffect(() => {
     dispatch(acLoading(true));
     axios(`${"https://honey.pandashop.uz/product/view"}`, {
+      method: "GET",
       headers: {
         token: "",
       },

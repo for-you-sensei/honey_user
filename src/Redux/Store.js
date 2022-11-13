@@ -1,8 +1,10 @@
 import { configureStore, combineReducers } from "@reduxjs/toolkit";
 import { reLoading } from "./Loading";
+import { reSearch } from "./Search";
 
 const reducer = combineReducers({
   loading: reLoading,
+  search: reSearch,
 });
 
 export const Store = configureStore({
