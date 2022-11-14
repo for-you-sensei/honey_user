@@ -12,7 +12,7 @@ export function Sec1() {
   const search = useSelector((state) => state.search);
   const [orders, setOrders] = useState([]);
   const dispatch = useDispatch();
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   const relodeProduct = useSelector((state) => state.relodeProduct);
 
@@ -69,7 +69,7 @@ export function Sec1() {
             return (
               <div key={item.id} className="order-sec1-card">
                 <figure className="order-sec1-card-figure">
-                  <img src={item.img[0]} alt="" />
+                  <img src={item.img} alt="" />
                 </figure>
 
                 <div className="order-sec1-card-texts">

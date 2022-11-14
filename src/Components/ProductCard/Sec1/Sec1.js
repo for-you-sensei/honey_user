@@ -24,8 +24,8 @@ export function Sec1() {
       },
     })
       .then((res) => {
-        dispatch(acLoading(false));
         setData(res.data);
+        dispatch(acLoading(false));
       })
       .catch((err) => {
         console.log(err);

@@ -15,12 +15,18 @@ export function Search() {
           type="number"
           name="phone"
           placeholder="Telefon raqamingizni kiriting"
+          autoComplete="off"
           value={search}
           onChange={(e) => {
-            dispatch(acSearch(e.target.value.toLowerCase()));
+            dispatch(acSearch(e.target.value));
           }}
         />
-        <button>
+        <button
+          onClick={(e) => {
+            e.preventDefault();
+            dispatch(acSearch(e.target.value));
+          }}
+        >
           <SearchIcon />
         </button>
       </form>

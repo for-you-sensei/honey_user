@@ -1,7 +1,7 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { acLoading } from "../../Redux/Loading";
 import { toast } from "react-toastify";
 import close from "../../Assets/Icons/close_ring.svg";
@@ -15,6 +15,7 @@ export function ViewProduct() {
   const [productData, setProductData] = useState({});
   const [img, setImg] = useState([]);
   const [addOrder, setAddOrder] = useState(false);
+  const navigate = useNavigate();
 
   const relodeProduct = useSelector((state) => state.relodeProduct);
 
@@ -68,7 +69,14 @@ export function ViewProduct() {
             >
               Xarid qilish
             </button>
-            <button>Biz bilan Bog'laning</button>
+            <button
+              onClick={(e) => {
+                e.preventDefault();
+                navigate("/my_orders")
+              }}
+            >
+              Mening Buyurtmalarim
+            </button>
           </div>
         </div>
       </div>
@@ -78,6 +86,10 @@ export function ViewProduct() {
           className={addOrder ? "modal_body activ" : "modal_body"}
           onSubmit={(e) => {
             e.preventDefault();
+            const formData = new FormData();
+            for (let i = 0; img.length > i; i++) {
+              formData.append("img", img[i]);
+            }
 
             //imgni massiv sifati jo'natadigan qilish kerak
 
@@ -104,7 +116,7 @@ export function ViewProduct() {
 
             axios(config)
               .then(function (response) {
-                toast.success(response.data.message);
+                toast(response.data.message);
                 console.log(response.data);
                 setAddOrder(false);
                 e.target.customer.value = "";
