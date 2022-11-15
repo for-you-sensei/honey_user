@@ -9,7 +9,7 @@ export function Search() {
   const dispatch = useDispatch();
   return (
     <div className="order-sec1-search">
-      <h1>Buyurtmangizni ko’rish uchun Telefon rqamingizni kiriting</h1>
+      <p className="order-main-texts">Buyurtmangizni ko’rish uchun Telefon rqamingizni kiriting</p>
       <form className="order-sec1-search-form">
         <input
           type="number"

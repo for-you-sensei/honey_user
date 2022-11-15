@@ -60,7 +60,7 @@ export function Sec1() {
     <div id="order-sec1">
       <Search />
 
-      <h1>Sizning Buyurtmangiz</h1>
+      <p className="order-main-texts">Sizning Buyurtmangiz</p>
 
       <div className="order-sec1-container">
         {orders
