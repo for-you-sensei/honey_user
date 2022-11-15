@@ -11,6 +11,7 @@ import Loading from "./Components/Loading.js/Loading";
 import { Orders } from "./Pages/MyOrders/MyOrders";
 import { MostView } from "./Components/ViewProduct/MostViewed/MostView";
 import { ViewOrder } from "./Components/ViewOrder/ViewOrder";
+
 export function Router() {
   return (
     <div id="router">
