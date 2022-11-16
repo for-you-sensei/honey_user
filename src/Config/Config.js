@@ -12,15 +12,15 @@ export function Config() {
 
   useEffect(() => {
     dispatch(acLoading(true));
-    axios(`${"https://honey.pandashop.uz/product/view"}`, {
+    axios("https://honey.pandashop.uz/product/view", {
       method: "GET",
       headers: {
         token: "",
       },
     })
       .then((res) => {
-        dispatch(acLoading(false));
         dispatch(acProduct(res.data));
+        dispatch(acLoading(false));
       })
       .catch((err) => {
         console.log(err);
@@ -30,7 +30,7 @@ export function Config() {
 
   useEffect(() => {
     dispatch(acLoading(true));
-    axios(`https://honey.pandashop.uz/order/view`, {
+    axios("https://honey.pandashop.uz/order/view", {
       method: "GET",
       headers: {
         token: "",

@@ -17,7 +17,7 @@ export function Sec1() {
 
   function deletOrder(id) {
     dispatch(acLoading(true));
-    axios(`https://honey.pandashop.uz/order/delete`, {
+    axios("https://honey.pandashop.uz/order/delete", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

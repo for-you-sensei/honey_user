@@ -14,10 +14,12 @@ export function ViewOrder() {
   const id = location.pathname.split("/").pop();
   const dispatch = useDispatch();
 
+  const api = "https://honey.pandashop.uz";
+
   useEffect(() => {
     dispatch(acLoading(true));
     axios
-      .get(`https://honey.pandashop.uz/order/view/${id}`, {
+      .get(`${api}order/view/${id}`, {
         headers: {
           token: "token",
         },
@@ -34,7 +36,7 @@ export function ViewOrder() {
 
   function deletOrder(id) {
     dispatch(acLoading(true));
-    axios(`https://honey.pandashop.uz/order/delete`, {
+    axios("https://honey.pandashop.uz/order/delete", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
