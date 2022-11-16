@@ -79,6 +79,7 @@ export function Sec1() {
                     <button
                       onClick={() => {
                         navigate(`/order_view/${item.id}`);
+                        window.scrollTo(0, 0);
                       }}
                     >
                       Info

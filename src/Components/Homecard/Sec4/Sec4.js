@@ -23,7 +23,7 @@ export function Sec4() {
       img: img2,
     },
   ];
-  
+
   return (
     <div id="home-sec4">
       <div className="home-sec4-container">
@@ -43,7 +43,8 @@ export function Sec4() {
                 <button
                   onClick={(e) => {
                     e.preventDefault();
-                    navigate("./our_product")
+                    navigate("./our_product");
+                    window.scrollTo(0, 0);
                   }}
                 >
                   Buy Now

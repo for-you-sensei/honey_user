@@ -49,6 +49,7 @@ export function Footer() {
           onClick={(e) => {
             e.preventDefault();
             navigate("/");
+            window.scrollTo(0, 0);
           }}
         >
           <img src={logo} alt="" />

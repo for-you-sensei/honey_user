@@ -44,16 +44,45 @@ export function Navbar() {
         onClick={(e) => {
           e.preventDefault();
           navigate("/");
+          window.scrollTo(0, 0);
         }}
       >
         <img src={location.pathname !== "/" ? blackLogo : logo} alt="" />
       </figure>
 
       <div className="nav-links">
-        <NavLink to="/">Home</NavLink>
-        <NavLink to="/about">About</NavLink>
-        <NavLink to="/our_product">Our Product</NavLink>
-        <NavLink to="/my_orders">My Orders</NavLink>
+        <NavLink
+          to="/"
+          onClick={() => {
+            window.scrollTo(0, 0);
+          }}
+        >
+          Home
+        </NavLink>
+        <NavLink
+          to="/about"
+          onClick={() => {
+            window.scrollTo(0, 0);
+          }}
+        >
+          About
+        </NavLink>
+        <NavLink
+          to="/our_product"
+          onClick={() => {
+            window.scrollTo(0, 0);
+          }}
+        >
+          Our Product
+        </NavLink>
+        <NavLink
+          to="/my_orders"
+          onClick={() => {
+            window.scrollTo(0, 0);
+          }}
+        >
+          My Orders
+        </NavLink>
       </div>
 
       <figure
@@ -78,6 +107,7 @@ export function Navbar() {
             onClick={(e) => {
               e.preventDefault();
               navigate("/");
+              window.scrollTo(0, 0);
               setOpen(false);
             }}
           >
@@ -90,6 +120,7 @@ export function Navbar() {
                 <ListItemButton
                   onClick={() => {
                     setOpen(false);
+                    window.scrollTo(0, 0);
                   }}
                   className="drawer-text"
                 >

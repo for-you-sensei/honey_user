@@ -72,7 +72,8 @@ export function ViewProduct() {
             <button
               onClick={(e) => {
                 e.preventDefault();
-                navigate("/my_orders")
+                navigate("/my_orders");
+                window.scrollTo(0, 0);
               }}
             >
               Mening Buyurtmalarim

@@ -31,6 +31,7 @@ export function Sec1() {
               className="product-sec1-card"
               onClick={() => {
                 navigate(`/product_view/${item.id}`);
+                window.scrollTo(0, 0);
               }}
             >
               <figure className="product-sec1-figure">

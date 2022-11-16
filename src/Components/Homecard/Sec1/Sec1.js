@@ -17,6 +17,7 @@ export function Sec1() {
           onClick={(e) => {
             e.preventDefault();
             navigate("/our_product");
+            window.scrollTo(0, 0);
           }}
         >
           Buy Now
@@ -25,6 +26,7 @@ export function Sec1() {
           onClick={(e) => {
             e.preventDefault();
             navigate("/about");
+            window.scrollTo(0, 0);
           }}
         >
           Learn More
