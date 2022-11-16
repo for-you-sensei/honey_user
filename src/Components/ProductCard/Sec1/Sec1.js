@@ -46,10 +46,10 @@ export function Sec1() {
   return (
     <div id="product-sec1">
       <div className="product-sec1-container">
-        {currentPosts.map((item) => {
+        {currentPosts.map((item, index) => {
           return (
             <div
-              key={item.id}
+              key={index}
               className="product-sec1-card"
               onClick={() => {
                 navigate(`/product_view/${item.id}`);
