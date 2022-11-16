@@ -1,9 +1,9 @@
 import React from "react";
 import "./Sec2.css";
-import sponsor1 from "../../../Assets/Icons/Home/home sponsor 1.svg";
+import sponsor1 from "../../../Assets/Icons/Home/home sponsor 1.png";
 import sponsor2 from "../../../Assets/Icons/Home/home sponsor 2.svg";
 import sponsor3 from "../../../Assets/Icons/Home/home sponsor 3.svg";
-import sponsor4 from "../../../Assets/Icons/Home/home sponsor 4.svg";
+import sponsor4 from "../../../Assets/Icons/Home/home sponsor 4.png";
 
 export function Sec2() {
   const shops = [

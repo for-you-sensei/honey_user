@@ -45,7 +45,6 @@ export function ViewOrder() {
       .then((res) => {
         toast.success(res.data.message);
         dispatch(acLoading(false));
-        dispatch(acRelodeProduct());
       })
       .catch((err) => {
         dispatch(acLoading(false));
@@ -79,13 +78,10 @@ export function ViewOrder() {
               gap: "20px",
             }}
           >
-            Buyurtma Xolati:
-            <figure className="status">
-              <img
-                src={orderData.status === 1 ? "Tasdiqlangan" : "Tasdiqlanmagan"}
-                alt=""
-              />
-            </figure>
+            <p>
+              Buyurtma Xolati:{" "}
+              {orderData.status === 1 ? "Tasdiqlangan" : "Tasdiqlanmagan"}
+            </p>
           </div>
           <div id="btns">
             <button

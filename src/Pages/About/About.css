@@ -9,8 +9,68 @@
 
 .about-intro {
   width: 100%;
+  position: relative;
+}
+
+.about-intro > p {
+  width: 80%;
+  text-align: center;
+  font-size: 60px;
+  color: #fff;
+  font-weight: 600;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 .about-intro > img {
   width: 100%;
+}
+
+#biz_xaqimizda {
+  font-size: 55px;
+  font-weight: 600;
+  color: #ffa638;
+  padding: 4% 0;
+}
+
+@media (max-width: 1000px) {
+  .about-intro > p {
+    font-size: 50px;
+  }
+
+  #biz_xaqimizda {
+    font-size: 45px;
+  }
+}
+
+@media (max-width: 850px) {
+  #biz_xaqimizda {
+    font-size: 35px;
+  }
+
+  .about-intro > p {
+    font-size: 40px;
+  }
+}
+
+@media (max-width: 650px) {
+  #biz_xaqimizda {
+    font-size: 30px;
+  }
+
+  .about-intro > p {
+    font-size: 25px;
+  }
+}
+
+@media (max-width: 500px) {
+  #biz_xaqimizda {
+    font-size: 20px;
+  }
+
+  .about-intro > p {
+    font-size: 15px;
+  }
 }

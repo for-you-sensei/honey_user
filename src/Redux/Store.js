@@ -1,12 +1,15 @@
 import { configureStore, combineReducers } from "@reduxjs/toolkit";
 import { reLoading } from "./Loading";
-import { reRelodeProduct } from "./Product";
+import { reOrder } from "./Order";
+import { reProduct, reRelodeProduct } from "./Product";
 import { reSearch } from "./Search";
 
 const reducer = combineReducers({
   loading: reLoading,
   search: reSearch,
   relodeProduct: reRelodeProduct,
+  product: reProduct,
+  order: reOrder,
 });
 
 export const Store = configureStore({

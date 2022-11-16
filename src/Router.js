@@ -11,6 +11,7 @@ import Loading from "./Components/Loading.js/Loading";
 import { Orders } from "./Pages/MyOrders/MyOrders";
 import { MostView } from "./Components/ViewProduct/MostViewed/MostView";
 import { ViewOrder } from "./Components/ViewOrder/ViewOrder";
+import { Config } from "./Config/Config";
 
 export function Router() {
   return (
@@ -32,6 +33,7 @@ export function Router() {
       </Routes>
       <Footer />
       <Loading />
+      <Config />
     </div>
   );
 }

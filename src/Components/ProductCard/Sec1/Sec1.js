@@ -1,42 +1,20 @@
-import { React, useState, useEffect } from "react";
+import { React, useState } from "react";
 import "./Sec1.css";
 import { Pagination } from "../Paginate";
-import { useDispatch, useSelector } from "react-redux";
-import { acLoading } from "../../../Redux/Loading";
-import axios from "axios";
+import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 
 export function Sec1() {
   const navigate = useNavigate();
-  const dispatch = useDispatch();
   const [currentPage, setCurrentPage] = useState(1);
   const [postsPerPage] = useState(15);
-  const [data, setData] = useState([]);
 
-  const relodeProduct = useSelector((state) => state.relodeProduct);
-
-  useEffect(() => {
-    dispatch(acLoading(true));
-    axios(`${"https://honey.pandashop.uz/product/view"}`, {
-      method: "GET",
-      headers: {
-        token: "",
-      },
-    })
-      .then((res) => {
-        setData(res.data);
-        dispatch(acLoading(false));
-      })
-      .catch((err) => {
-        console.log(err);
-        dispatch(acLoading(false));
-      });
-  }, [dispatch, relodeProduct]);
+  const product = useSelector((state) => state.product);
 
   // Get current posts
   const indexOfLastPost = currentPage * postsPerPage;
   const indexOfFirstPost = indexOfLastPost - postsPerPage;
-  const currentPosts = data.slice(indexOfFirstPost, indexOfLastPost);
+  const currentPosts = product.slice(indexOfFirstPost, indexOfLastPost);
 
   // Change page
   const paginate = (pageNumber) => {
@@ -72,7 +50,7 @@ export function Sec1() {
 
       <Pagination
         postsPerPage={postsPerPage}
-        totalPosts={data.length}
+        totalPosts={product.length}
         paginate={paginate}
         currentPage={currentPage}
         setCurrentPage={setCurrentPage}

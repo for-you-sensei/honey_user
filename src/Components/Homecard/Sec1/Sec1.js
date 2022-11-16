@@ -1,6 +1,6 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import homeIntro from "../../../Assets/Icons/Home/home intro.svg";
+import homeIntro from "../../../Assets/Icons/Home/home intro.png";
 import "./Sec1.css";
 
 export function Sec1() {

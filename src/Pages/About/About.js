@@ -6,7 +6,9 @@ import { Sec1 } from "../../Components/AboutCard/Sec1";
 export function About() {
   return (
     <div id="about">
+      <p id="biz_xaqimizda">Biz Xaqimizda</p>
       <figure className="about-intro">
+        <p>Biz faqatgina tabiy maxsulotlarni tafsiya qilamiz</p>
         <img src={intro} alt="" />
       </figure>
 

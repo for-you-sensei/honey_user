@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import "./Sec1.css";
 import { Search } from "./Search/Search";
 import { useDispatch, useSelector } from "react-redux";
@@ -10,29 +10,10 @@ import { useNavigate } from "react-router-dom";
 
 export function Sec1() {
   const search = useSelector((state) => state.search);
-  const [orders, setOrders] = useState([]);
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  const relodeProduct = useSelector((state) => state.relodeProduct);
-
-  useEffect(() => {
-    dispatch(acLoading(true));
-    axios(`https://honey.pandashop.uz/order/view`, {
-      method: "GET",
-      headers: {
-        token: "Admin Tokeni",
-      },
-    })
-      .then((res) => {
-        dispatch(acLoading(false));
-        setOrders(res.data);
-      })
-      .catch((err) => {
-        dispatch(acLoading(false));
-        console.log(err.response.data.message);
-      });
-  }, [setOrders, relodeProduct, dispatch]);
+  const orders = useSelector((state) => state.order);
 
   function deletOrder(id) {
     dispatch(acLoading(true));
@@ -45,9 +26,9 @@ export function Sec1() {
       },
     })
       .then((res) => {
-        toast.success(res.data.message);
         dispatch(acLoading(false));
         dispatch(acRelodeProduct());
+        toast.success(res.data.message);
       })
       .catch((err) => {
         dispatch(acLoading(false));
