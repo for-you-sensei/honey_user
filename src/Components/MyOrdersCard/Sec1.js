@@ -65,7 +65,7 @@ export function Sec1() {
                 </div>
 
                 <div className="order-sec1-card-texts">
-                  <p>{item.date.split("-").join(".")}</p>
+                  <p>{new Date(item.date).toLocaleDateString()}</p>
                   <p>3 kunda yetkazib beriladi</p>
                   <div className="order-sec1-card-btns">
                     <button
