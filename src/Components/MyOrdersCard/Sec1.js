@@ -44,51 +44,54 @@ export function Sec1() {
       <p className="order-main-texts">Sizning Buyurtmangiz</p>
 
       <div className="order-sec1-container">
-        {orders
-          .filter((item) => item.phone.includes(search))
-          .map((item) => {
-            return (
-              <div key={item.id} className="order-sec1-card">
-                <figure className="order-sec1-card-figure">
-                  <img src={item.img} alt="" />
-                </figure>
+        {search === ""
+          ? ""
+          : orders
+              .filter((item) => item.phone.includes(search))
+              .map((item) => {
+                return (
+                  <div key={item.id} className="order-sec1-card">
+                    <figure className="order-sec1-card-figure">
+                      <img src={item.img} alt="" />
+                    </figure>
 
-                <div className="order-sec1-card-texts">
-                  <p>
-                    {item.name} {item.weight}
-                  </p>
-                  <p>phone: {item.phone}</p>
-                  <p>{item.price} so'm</p>
-                  <p>
-                    Status: {item.status ? "Tasdiqlangan" : "Tasdiqlanmagan"}
-                  </p>
-                </div>
+                    <div className="order-sec1-card-texts">
+                      <p>
+                        {item.name} {item.weight}
+                      </p>
+                      <p>phone: {item.phone}</p>
+                      <p>{item.price} so'm</p>
+                      <p>
+                        Status:{" "}
+                        {item.status ? "Tasdiqlangan" : "Tasdiqlanmagan"}
+                      </p>
+                    </div>
 
-                <div className="order-sec1-card-texts">
-                  <p>{new Date(item.date).toLocaleDateString()}</p>
-                  <p>3 kunda yetkazib beriladi</p>
-                  <div className="order-sec1-card-btns">
-                    <button
-                      onClick={(e) => {
-                        e.preventDefault();
-                        deletOrder(item.id);
-                      }}
-                    >
-                      Bekor qilish
-                    </button>
-                    <button
-                      onClick={() => {
-                        navigate(`/order_view/${item.id}`);
-                        window.scrollTo(0, 0);
-                      }}
-                    >
-                      Info
-                    </button>
+                    <div className="order-sec1-card-texts">
+                      <p>{new Date(item.date).toLocaleDateString()}</p>
+                      <p>3 kunda yetkazib beriladi</p>
+                      <div className="order-sec1-card-btns">
+                        <button
+                          onClick={(e) => {
+                            e.preventDefault();
+                            deletOrder(item.id);
+                          }}
+                        >
+                          Bekor qilish
+                        </button>
+                        <button
+                          onClick={() => {
+                            navigate(`/order_view/${item.id}`);
+                            window.scrollTo(0, 0);
+                          }}
+                        >
+                          Info
+                        </button>
+                      </div>
+                    </div>
                   </div>
-                </div>
-              </div>
-            );
-          })}
+                );
+              })}
       </div>
     </div>
   );
